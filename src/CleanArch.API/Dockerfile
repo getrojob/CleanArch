@@ -10,6 +10,10 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["CleanArch.API/CleanArch.API.csproj", "CleanArch.API/"]
+COPY ["CleanArch.Domain/CleanArch.Domain.csproj", "CleanArch.Domain/"]
+COPY ["CleanArch.Infrastructure/CleanArch.Infrastructure.csproj", "CleanArch.Infrastructure/"]
+COPY ["CleanArch.CrossCutting/CleanArch.CrossCutting.csproj", "CleanArch.CrossCutting/"]
+COPY ["CleanArch.Application/CleanArch.Application.csproj", "CleanArch.Application/"]
 RUN dotnet restore "./CleanArch.API/./CleanArch.API.csproj"
 COPY . .
 WORKDIR "/src/CleanArch.API"

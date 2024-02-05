@@ -23,6 +23,9 @@ namespace CleanArch.CrossCutting.AddDependencies
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IMemberRepository, MemberRepository>();
 
+            var myhandlers = AppDomain.CurrentDomain.Load("CleanArch.Infrastructure");
+            services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(myhandlers));
+
             return services;
         }
     }

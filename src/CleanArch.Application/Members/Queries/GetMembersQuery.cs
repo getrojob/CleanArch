@@ -14,6 +14,7 @@ namespace CleanArch.Application.Members.Queries
             {
                 _memberDapperRepository = memberDapperRepository;
             }
+
             public async Task<IEnumerable<Member>> Handle(GetMembersQuery request, CancellationToken cancellationToken)
             {
                 var members = await _memberDapperRepository.GetMembers();

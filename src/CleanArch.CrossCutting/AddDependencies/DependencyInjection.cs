@@ -1,11 +1,14 @@
-﻿using System.Data;
+﻿using CleanArch.Application.Members.Commands.Validations;
 using CleanArch.Domain.Abstractions;
 using CleanArch.Infrastructure.Context;
 using CleanArch.Infrastructure.Repositories;
+using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using MySqlConnector;
+using System.Data;
+using System.Reflection;
 
 namespace CleanArch.CrossCutting.AddDependencies
 {
@@ -35,7 +38,13 @@ namespace CleanArch.CrossCutting.AddDependencies
             services.AddScoped<IMemberDapperRepository, MemberDapperRepository>();
 
             var myhandlers = AppDomain.CurrentDomain.Load("CleanArch.Application");
-            services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(myhandlers));
+            services.AddMediatR(cfg =>
+            {
+                cfg.RegisterServicesFromAssemblies(myhandlers);
+                cfg.AddOpenBehavior(typeof(ValidationBehaviour<,>));
+            });
+
+            services.AddValidatorsFromAssembly(Assembly.Load("CleanArch.Application"));
 
             return services;
         }

@@ -11,6 +11,7 @@ namespace CleanArch.API.Controllers
     public class MembersController : ControllerBase
     {
         private readonly IMediator _mediator;
+
         public MembersController(IMediator mediator, IUnitOfWork unitOfWork)
         {
             _mediator = mediator;

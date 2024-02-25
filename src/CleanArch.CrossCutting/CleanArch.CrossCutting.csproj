@@ -1,19 +1,19 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="System.Configuration.ConfigurationManager" Version="8.0.0" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.9.0" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\CleanArch.Application\CleanArch.Application.csproj" />
-    <ProjectReference Include="..\CleanArch.Domain\CleanArch.Domain.csproj" />
-    <ProjectReference Include="..\CleanArch.Infrastructure\CleanArch.Infrastructure.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\CleanArch.Application\CleanArch.Application.csproj" />
+		<ProjectReference Include="..\CleanArch.Domain\CleanArch.Domain.csproj" />
+		<ProjectReference Include="..\CleanArch.Infrastructure\CleanArch.Infrastructure.csproj" />
+	</ItemGroup>
 
 </Project>
